@@ -10,6 +10,15 @@ using namespace std;
 int wybor;
 fstream logFile;
 
+struct berResults
+{
+    double Ilosc; 
+    double Bledy; 
+    float ber;  
+    clock_t t1; 
+    clock_t t2; 
+};
+
 void Zapis_Logow(string msg)
 {
     string ss;
@@ -34,7 +43,7 @@ void Otwarcie_loga(string fileName)
 }
 
 
-void closeLog(void)
+void zamkniecieloga(void)
 {
     Zapis_Logow("Log jest zamkniety!");
     logFile.close();
@@ -72,15 +81,72 @@ void tworzenie()
     Zapis_Logow("Testowe pliki sa tworzone");
 }
 
+uint8_t hammingDistance(uint8_t n1, uint8_t n2)
+{
+    uint8_t x = n1 ^ n2; 
+    uint8_t setBits = 0;
+    while (x > 0)
+    {
+        setBits += x & 1;
+        x >>= 1;
+    }
+    return setBits;
+}
 
+berResults obliczenieBer(string fpath1, string fpath2)
+{
+    std::fstream f1, f2; 
+    berResults results;
+    results.t1 = 0;
+    results.t2 = 0;
+    results.ber = 0;
+    results.Bledy = 0;
+    results.Ilosc = 0;
+
+    Zapis_Logow("Liczenie BER...");
+    f1.open(fpath1.c_str(), std::ios::binary | std::ios::in);
+    f2.open(fpath2.c_str(), std::ios::binary | std::ios::in);
+    char a = 0x00;
+    char b = 0x00;
+    results.t1 = clock();
+
+    while (!f1.eof())
+    {
+        f1 >> a; 
+        f2 >> b;
+        if (!f1.eof()) 
+        {
+            results.Bledy += hammingDistance(a, b);
+            results.Ilosc += 8; 
+        }
+    }
+
+    results.ber = (float)results.Bledy / results.Ilosc;
+    results.t2 = clock();
+    Zapis_Logow("Obliczenie zakonczone pomyslnie");
+    return results;
+}
+
+void wyswietlwynik(berResults results)
+{
+    stringstream message;
+    message << "Wynik: " << endl;
+    message << "BER: " << results.ber << endl;
+    message << "Ilosc: " << results.Ilosc << endl;
+    message << "Bledy: " << results.Bledy << endl;
+    message << "Czas obliczenia: " << ((float)results.t2 - results.t1) / CLOCKS_PER_SEC << " sec " << endl;
+    Zapis_Logow(message.str());
+}
 
 int main(int argc, char* argv[])
 {
+    berResults WynikBer;
+
     if (argc != 3) {
         tworzenie();
         do {
-            cout << "Kalkulator BER 0.2\n";
-            cout << "1. Obliczenie BER" << endl << "2. Test 1" << endl << "3. Test 2" << endl << "4. Test 3" << endl << "0. Quit\n";
+            cout << "Kalkulator BER 2.0\n";
+            cout << "1. Test 1" << endl << "2. Test 2" << endl << "3. Test 3" << endl << "0. Quit\n";
             
             cin >> wybor;
 
@@ -90,16 +156,19 @@ int main(int argc, char* argv[])
                 cout << "Quit\n";
                 return 0;
             case 1:
-                cout << "Obliczenie\n";
+                cout << "Test1\n";
+                WynikBer=obliczenieBer("plik1.1.bin", "plik1.2.bin");
+                wyswietlwynik(WynikBer);
                 break;
             case 2:
-                cout << "Test1\n";
+                cout << "Test2\n";
+                WynikBer=obliczenieBer("plik2.1.bin", "plik2.2.bin");
+                wyswietlwynik(WynikBer);
                 break;
             case 3:
-                cout << "Test2\n";
-                break;
-            case 4:
                 cout << "Test3\n";
+                WynikBer = obliczenieBer("plik3.1.bin", "plik3.2.bin");
+                wyswietlwynik(WynikBer);
                 break;
             }
         } 
