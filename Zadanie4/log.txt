@@ -93,3 +93,47 @@ Calc time: 332.623 sec
 T: Sat Jun 25 16:29:17 2022 M: Log zostal otwarty
 T: Sat Jun 25 16:29:17 2022 M: Brak danych od uzytkownika
 T: Sat Jun 25 16:29:17 2022 M: Tworzenie testowych plikow
+T: Sat Jun 25 16:41:59 2022 M: Log zostal otwarty
+T: Sat Jun 25 16:41:59 2022 M: Brak danych od uzytkownika
+T: Sat Jun 25 16:41:59 2022 M: Tworzenie testowych plikow
+T: Sat Jun 25 16:44:32 2022 M: Testowe pliki sa tworzone
+T: Sat Jun 25 16:46:06 2022 M: Liczenie BER...
+T: Sat Jun 25 16:46:06 2022 M: Obliczenie zakonczone pomyslnie
+T: Sat Jun 25 16:46:06 2022 M: Wynik: 
+BER: 0
+Ilosc: 800
+Bledy: 0
+Czas obliczenia: 0 sec 
+
+T: Sat Jun 25 16:46:08 2022 M: Liczenie BER...
+T: Sat Jun 25 16:46:08 2022 M: Obliczenie zakonczone pomyslnie
+T: Sat Jun 25 16:46:08 2022 M: Wynik: 
+BER: 0.5
+Ilosc: 800
+Bledy: 400
+Czas obliczenia: 0 sec 
+
+T: Sat Jun 25 16:46:13 2022 M: Log zostal otwarty
+T: Sat Jun 25 16:46:13 2022 M: Brak danych od uzytkownika
+T: Sat Jun 25 16:46:13 2022 M: Tworzenie testowych plikow
+T: Sat Jun 25 16:46:13 2022 M: Plik plik1.1.bin juz istnieje.
+
+T: Sat Jun 25 16:46:13 2022 M: Plik plik1.2.bin juz istnieje.
+
+T: Sat Jun 25 16:46:13 2022 M: Plik plik2.1.bin juz istnieje.
+
+T: Sat Jun 25 16:46:13 2022 M: Plik plik2.2.bin juz istnieje.
+
+T: Sat Jun 25 16:46:13 2022 M: Plik plik3.1.bin juz istnieje.
+
+T: Sat Jun 25 16:46:13 2022 M: Plik plik3.2.bin juz istnieje.
+
+T: Sat Jun 25 16:46:13 2022 M: Testowe pliki sa tworzone
+T: Sat Jun 25 16:46:27 2022 M: Liczenie BER...
+T: Sat Jun 25 16:46:27 2022 M: Obliczenie zakonczone pomyslnie
+T: Sat Jun 25 16:46:27 2022 M: Wynik: 
+BER: 0.5
+Ilosc: 800
+Bledy: 400
+Czas obliczenia: 0 sec 
+

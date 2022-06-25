@@ -10,6 +10,7 @@ using namespace std;
 int wybor;
 fstream logFile;
 
+
 struct berResults
 {
     double Ilosc; 
@@ -51,34 +52,43 @@ void zamkniecieloga(void)
 
 void tworzeniepliku1(const string name, const int count, const char value)
 {
-    fstream f;
-    f.open(name.c_str(), ios::binary | ios::out);
-    for (int i = 0; i < count; i++)
+    ifstream mojPlik;
+
+    mojPlik.open(name);
+    if (mojPlik)
     {
-        f.write((char*)&value, 1);
+        Zapis_Logow("Plik " + name + " juz istnieje.\n");
     }
-    f.close();
+    else
+    {
+        fstream f;
+        f.open(name.c_str(), ios::binary | ios::out);
+        for (int i = 0; i < count; i++)
+        {
+            f.write((char*)&value, 1);
+        }
+        f.close();
+    }
 }
 
 void tworzenie()
 {
     Otwarcie_loga("log.txt");
+    Zapis_Logow("Brak danych od uzytkownika");   
+        Zapis_Logow("Tworzenie testowych plikow");
+        //test 1
+        tworzeniepliku1("plik1.1.bin", 100, 0x55);
+        tworzeniepliku1("plik1.2.bin", 100, 0x55);
+        //test 2
 
-    Zapis_Logow("Brak danych od uzytkownika");
-    Zapis_Logow("Tworzenie testowych plikow");
-    //test 1
-    tworzeniepliku1("plik1.1.bin", 100, 0x55);
-    tworzeniepliku1("plik1.2.bin", 100, 0x55);
-    //test 2
+        tworzeniepliku1("plik2.1.bin", 100, 0x55);
+        tworzeniepliku1("plik2.2.bin", 100, 0x48);
 
-    tworzeniepliku1("plik2.1.bin", 100, 0x55);
-    tworzeniepliku1("plik2.2.bin", 100, 0x48);
+        //test 3
+        tworzeniepliku1("plik3.1.bin", 419430400, 0x55);
+        tworzeniepliku1("plik3.2.bin", 419430400, 0x50);
 
-    //test 3
-    tworzeniepliku1("plik3.1.bin", 419430400, 0x55);
-    tworzeniepliku1("plik3.2.bin", 419430400, 0x50);
-
-    Zapis_Logow("Testowe pliki sa tworzone");
+        Zapis_Logow("Testowe pliki sa tworzone");
 }
 
 uint8_t hammingDistance(uint8_t n1, uint8_t n2)
