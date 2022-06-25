@@ -1,0 +1,23 @@
+T: Sat Jun 25 14:49:02 2022 M: Log zostal otwarty
+T: Sat Jun 25 14:49:02 2022 M: Brak danych od uzytkownika
+T: Sat Jun 25 14:49:02 2022 M: Tworzenie testowych plikow
+T: Sat Jun 25 14:49:02 2022 M: Utworzono plik: plik1.1.bin
+
+T: Sat Jun 25 14:49:02 2022 M: Utworzono plik: plik1.2.bin
+
+T: Sat Jun 25 14:49:02 2022 M: Utworzono plik: plik2.1.bin
+
+T: Sat Jun 25 14:49:02 2022 M: Utworzono plik: plik2.2.bin
+
+T: Sat Jun 25 14:49:02 2022 M: Utworzono plik: plik3.1.bin
+
+T: Sat Jun 25 14:49:02 2022 M: Utworzono plik: plik3.2.bin
+
+T: Sat Jun 25 14:49:02 2022 M: Testowe pliki sa tworzone
+T: Sat Jun 25 14:51:24 2022 M: Log zostal otwarty
+T: Sat Jun 25 14:51:24 2022 M: Brak danych od uzytkownika
+T: Sat Jun 25 14:51:24 2022 M: Tworzenie testowych plikow
+T: Sat Jun 25 14:52:04 2022 M: Log zostal otwarty
+T: Sat Jun 25 14:52:04 2022 M: Brak danych od uzytkownika
+T: Sat Jun 25 14:52:04 2022 M: Tworzenie testowych plikow
+T: Sat Jun 25 14:54:31 2022 M: Testowe pliki sa tworzone
